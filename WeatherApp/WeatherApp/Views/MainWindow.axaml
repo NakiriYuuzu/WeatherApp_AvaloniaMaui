@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="430" d:DesignHeight="932"
+        xmlns:vm="using:WeatherApp.ViewModels"
+        xmlns:views="using:WeatherApp.Views"
+        x:DataType="vm:MainViewModel"
+        x:Class="WeatherApp.Views.MainWindow"
+        x:CompileBindings="True"
+        Icon="/Assets/icon_02d.png"
+        Title="WeatherApp">
+
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <views:MainView />
+</Window>

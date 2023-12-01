@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp\WeatherApp.csproj", "{1184D1CB-22AB-4920-9A1E-7C5EFD3F73A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Android", "WeatherApp\WeatherApp.Android\WeatherApp.Android.csproj", "{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Desktop", "WeatherApp\WeatherApp.Desktop\WeatherApp.Desktop.csproj", "{620B230F-C55D-4F59-BAED-BB11B61B70E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.iOS", "WeatherApp\WeatherApp.iOS\WeatherApp.iOS.csproj", "{29AD325E-38CB-4860-AA04-04EF54AF641E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Browser", "WeatherApp\WeatherApp.Browser\WeatherApp.Browser.csproj", "{004E09ED-9A18-41D3-83F9-208A71093E36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1184D1CB-22AB-4920-9A1E-7C5EFD3F73A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1184D1CB-22AB-4920-9A1E-7C5EFD3F73A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1184D1CB-22AB-4920-9A1E-7C5EFD3F73A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1184D1CB-22AB-4920-9A1E-7C5EFD3F73A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD3B2DB-A107-48E1-9A11-FB46AC0E540C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{620B230F-C55D-4F59-BAED-BB11B61B70E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620B230F-C55D-4F59-BAED-BB11B61B70E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620B230F-C55D-4F59-BAED-BB11B61B70E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620B230F-C55D-4F59-BAED-BB11B61B70E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AD325E-38CB-4860-AA04-04EF54AF641E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{004E09ED-9A18-41D3-83F9-208A71093E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004E09ED-9A18-41D3-83F9-208A71093E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004E09ED-9A18-41D3-83F9-208A71093E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004E09ED-9A18-41D3-83F9-208A71093E36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

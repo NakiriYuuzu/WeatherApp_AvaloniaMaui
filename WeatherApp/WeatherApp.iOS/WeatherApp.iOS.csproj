@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0-ios</TargetFramework>
+        <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+      <CodesignKey>Apple Development: herrychao20@outlook.com (T68UC4R6SW)</CodesignKey>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia.iOS" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="HeroIcons.Avalonia" Version="1.0.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+        <PackageReference Include="Neumorphism.Avalonia" Version="0.8.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Splat" Version="14.8.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\WeatherApp\WeatherApp.csproj"/>
+    </ItemGroup>
+</Project>

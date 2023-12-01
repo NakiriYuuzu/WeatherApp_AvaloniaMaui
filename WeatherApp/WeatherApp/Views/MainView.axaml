@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WeatherApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="430" d:DesignHeight="932"
+             x:CompileBindings="True"
+             x:Class="WeatherApp.Views.MainView"
+             x:DataType="vm:MainViewModel">
+    
+    <Design.DataContext><vm:MainViewModel/></Design.DataContext>
+    
+    <Grid RowDefinitions="*" Margin="10">
+        <TransitioningContentControl Content="{Binding CurrentPage}" />
+    </Grid>
+</UserControl>

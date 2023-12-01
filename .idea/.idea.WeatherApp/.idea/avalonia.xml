@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="WeatherApp/WeatherApp/App.axaml" value="WeatherApp/WeatherApp.Browser/WeatherApp.Browser.csproj" />
+        <entry key="WeatherApp/WeatherApp/Views/FirstPageView.axaml" value="WeatherApp/WeatherApp.Desktop/WeatherApp.Desktop.csproj" />
+        <entry key="WeatherApp/WeatherApp/Views/IntroView.axaml" value="WeatherApp/WeatherApp.Desktop/WeatherApp.Desktop.csproj" />
+        <entry key="WeatherApp/WeatherApp/Views/MainView.axaml" value="WeatherApp/WeatherApp.Desktop/WeatherApp.Desktop.csproj" />
+        <entry key="WeatherApp/WeatherApp/Views/MainWindow.axaml" value="WeatherApp/WeatherApp.Desktop/WeatherApp.Desktop.csproj" />
+        <entry key="WeatherApp/WeatherApp/Views/SecondPageView.axaml" value="WeatherApp/WeatherApp.Desktop/WeatherApp.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

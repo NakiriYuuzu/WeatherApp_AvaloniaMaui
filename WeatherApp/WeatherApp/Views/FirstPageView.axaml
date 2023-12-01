@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="430" d:DesignHeight="932"
+             xmlns:vm="using:WeatherApp.ViewModels"
+             x:DataType="vm:FirstPageViewModel"
+             x:Class="WeatherApp.Views.FirstPageView">
+
+    <Grid>
+        <!-- 定义行 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!-- Logo -->
+            <RowDefinition Height="*" />    <!-- 文本 -->
+            <RowDefinition Height="Auto" /> <!-- 按钮 -->
+        </Grid.RowDefinitions>
+
+        <!-- 太阳和云的图像 -->
+        <Image Source="/Assets/icon_02d.png" Grid.Row="0" HorizontalAlignment="Center" Margin="0,60,0,0" />
+
+        <!-- 标题和描述 -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="20">
+            <TextBlock
+                Text="Weather"
+                FontSize="36"
+                FontWeight="Bold"
+                Foreground="Orange" />
+            <TextBlock
+                Text="Forecase App."
+                FontSize="30"
+                FontWeight="Bold"
+                Foreground="White"
+                TextAlignment="Start" />
+            <TextBlock
+                Text="It's the newest weather app. It has bunch of features and that includes most of the ones that every weather app has."
+                TextAlignment="Start"
+                TextWrapping="Wrap"
+                Foreground="White" />
+        </StackPanel>
+
+        <Button
+            Content="Get Started"
+            Grid.Row="2" Margin="20"
+            Width="200"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Command="{Binding NavigateNextCommand}" />
+    </Grid>
+</UserControl>

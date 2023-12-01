@@ -1,0 +1,137 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:heroIcons="clr-namespace:HeroIconsAvalonia.Controls;assembly=HeroIconsAvalonia"
+             mc:Ignorable="d" d:DesignWidth="430" d:DesignHeight="932"
+             xmlns:vm="using:WeatherApp.ViewModels"
+             x:DataType="vm:SecondPageViewModel"
+             x:Class="WeatherApp.Views.SecondPageView">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!-- 顶部栏 -->
+            <RowDefinition Height="*" />    <!-- 天气内容 -->
+            <RowDefinition Height="Auto" /> <!-- 底部预报 -->
+        </Grid.RowDefinitions>
+
+        <!-- 顶部栏 -->
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch">
+            <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
+            <Button 
+                DockPanel.Dock="Left"
+                Theme="{StaticResource ButtonIcon}"
+                Command="{Binding LoadDataCommand}"
+                Width="125">
+                <Button.Content>
+                    <TextBlock 
+                        Text="Your Location"
+                        Foreground="White"/>
+                </Button.Content>
+            </Button>
+            <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
+            <Button 
+                DockPanel.Dock="Right"
+                HorizontalAlignment="Right"
+                Theme="{StaticResource ButtonIcon}">
+                <Button.Content>
+                    <heroIcons:HeroIcon Foreground="White" Type="MagnifyingGlass" Min="False"/>
+                </Button.Content>
+            </Button>
+        </DockPanel>
+
+        <!-- 当前天气显示 -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0, 32">
+            <TextBlock
+                Text="{Binding WeatherData.City.Name}"
+                FontSize="36"
+                FontWeight="Bold"
+                TextAlignment="Center" />
+            <TextBlock
+                Text="{Binding WeatherData.List[0].Weather[0].Description}"
+                FontSize="20"
+                TextAlignment="Center"/>
+            <Image 
+                Source="/Assets/icon_02d.png"
+                Margin="16"/>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel 
+                    Grid.Column="0"
+                    Margin="16, 0"
+                    HorizontalAlignment="Center">
+                    
+                    <Image
+                        Width="50"
+                        Source="/Assets/humidity.png" />
+                    <StackPanel 
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <TextBlock 
+                            Text="{Binding WeatherData.List[0].Main.Humidity}"/>
+                        <TextBlock
+                            Text="%"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                <StackPanel 
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+                    <TextBlock 
+                        Text="{Binding WeatherData.List[0].Main.Temp}"
+                        FontSize="48"
+                        FontWeight="Bold"/>
+                    <TextBlock
+                        Text="°C"
+                        FontSize="48"
+                        FontWeight="Bold"/>
+                    
+                </StackPanel>
+                
+                <StackPanel 
+                    Grid.Column="2"
+                    Margin="16, 0"
+                    HorizontalAlignment="Center">
+                    
+                    <Image
+                        Width="50"
+                        Source="/Assets/wind.png"/>
+                    
+                    <StackPanel 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding WeatherData.List[0].Wind.Speed}" />
+                        <TextBlock Text="km/h" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <!-- 底部预报 -->
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+            <ItemsControl ItemsSource="{Binding WeatherData.List}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center" Margin="8">
+                            <Image Source="{Binding Weather[0].IconImage}" Width="50" Height="50" />
+                            <TextBlock Text="{Binding Main.Temp}" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock Text="{Binding DtTxt}" TextAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
