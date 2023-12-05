@@ -10,8 +10,24 @@ using WeatherApp.Services;
 namespace WeatherApp.ViewModels;
 
 public class SecondPageViewModel : PageViewModelBase
-{
+{ 
+    public ReactiveCommand<Unit, Unit> OnSearchButtonClicked { get; }
     public ReactiveCommand<Unit, Unit> LoadDataCommand { get; }
+    private ReactiveCommand<Unit, Unit> OnSearchDataCommand { get; set; }
+    
+    private string _searchText;
+    public string SearchText
+    {
+        get => _searchText;
+        set => this.RaiseAndSetIfChanged(ref _searchText, value);
+    }
+    
+    private bool _isTextBoxVisible;
+    public bool IsTextBoxVisible
+    {
+        get => _isTextBoxVisible;
+        set => this.RaiseAndSetIfChanged(ref _isTextBoxVisible, value);
+    }
 
     private Root _weatherData = new();
     public Root WeatherData
@@ -22,17 +38,19 @@ public class SecondPageViewModel : PageViewModelBase
     
     public SecondPageViewModel()
     {
-        LoadDataCommand = ReactiveCommand.CreateFromTask(InitializeAsync);
+        IsTextBoxVisible = false;
+        OnSearchButtonClicked = ReactiveCommand.Create(OnSearchClicked);
+        LoadDataCommand = ReactiveCommand.CreateFromTask(() => InitializeAsync("Taichung"));
         LoadDataCommand.Execute().Subscribe();
     }
 
     // 异步初始化方法
-    private async Task InitializeAsync()
+    private async Task InitializeAsync(string city)
     {
         try
         {
             var data = await new ApiServices(Locator.Current.GetService<HttpClient>() ?? throw new InvalidOperationException())
-                .GetWeatherByCityAsync("Taichung");
+                .GetWeatherByCityAsync(city);
 
             if (data is null)
             {
@@ -46,6 +64,23 @@ public class SecondPageViewModel : PageViewModelBase
         catch (Exception ex)
         {
             Console.WriteLine("Error loading weather data: " + ex.Message);
+        }
+    }
+
+    private void OnSearchClicked()
+    {
+        if (!IsTextBoxVisible)
+        {
+            IsTextBoxVisible = true;
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                IsTextBoxVisible = false;
+                OnSearchDataCommand = ReactiveCommand.CreateFromTask(() => InitializeAsync(SearchText));
+                OnSearchDataCommand.Execute().Subscribe();
+            }
         }
     }
 

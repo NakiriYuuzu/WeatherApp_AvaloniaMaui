@@ -30,14 +30,26 @@
                 </Button.Content>
             </Button>
             <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
-            <Button 
-                DockPanel.Dock="Right"
+            <StackPanel 
+                Orientation="Horizontal"
                 HorizontalAlignment="Right"
-                Theme="{StaticResource ButtonIcon}">
-                <Button.Content>
-                    <heroIcons:HeroIcon Foreground="White" Type="MagnifyingGlass" Min="False"/>
-                </Button.Content>
-            </Button>
+                DockPanel.Dock="Right">
+                <TextBox  
+                    Watermark="Enter Your City"
+                    Text="{Binding SearchText}"
+                    IsVisible="{Binding IsTextBoxVisible}"
+                    Margin="0,0,8,0"
+                    MaxWidth="150"
+                    TextWrapping="Wrap" />
+                <Button 
+                    HorizontalAlignment="Right"
+                    Theme="{StaticResource ButtonIcon}"
+                    Command="{Binding OnSearchButtonClicked}">
+                    <Button.Content>
+                        <heroIcons:HeroIcon Foreground="White" Type="MagnifyingGlass" Min="False"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
         </DockPanel>
 
         <!-- 当前天气显示 -->
